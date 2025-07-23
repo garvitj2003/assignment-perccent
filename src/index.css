@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @layer base {
   html {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
@@ -10,4 +11,16 @@
     @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50;
   }
 }
-
+/* to remove the scrollbar from the body*/
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+.font-figtree {
+  font-family: "Figtree", sans-serif;
+}
