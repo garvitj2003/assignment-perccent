@@ -2,16 +2,21 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import type { ChartOptions } from "chart.js";
 import {
   BadgeDollarSign,
+  CalendarSync,
+  CircleFadingPlus,
   ListFilterPlus,
+  ShoppingBag,
+  ShoppingCart,
   TrendingUp,
   User,
 } from "lucide-react";
@@ -20,7 +25,8 @@ import StatsCard from "../components/StatsCard";
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend
@@ -32,26 +38,36 @@ export default function Hero() {
     datasets: [
       {
         label: "Seen product",
-        data: [2500, 4500, 3500, 4300, 2400, 3200, 3000],
-        backgroundColor: "rgba(56, 63, 75, 0.5)", // gray-400/50
-        borderRadius: Number.MAX_VALUE,
-        borderSkipped: false,
+        data: [1886, 3552, 3500, 4300, 2400, 3200, 3000],
+        backgroundColor: "rgba(156, 163, 175, 0.1)",
         borderColor: "rgba(156, 163, 175, 0.8)",
-        borderWidth: 1,
+        borderWidth: 3,
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: "rgba(156, 163, 175, 0.8)",
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 6,
       },
       {
         label: "Sales",
-        data: [1000, 2500, 2800, 3978, 2800, 3400, 2400],
-        backgroundColor: "rgba(99, 102, 241, 0.5)", // indigo-500/50
-        borderRadius: Number.MAX_VALUE,
-        borderSkipped: false,
+        data: [865, 2543, 3244, 3978, 2800, 3400, 2400],
+        backgroundColor: "rgba(99, 102, 241, 0.1)",
         borderColor: "rgba(99, 102, 241, 0.8)",
-        borderWidth: 1,
+        borderWidth: 3,
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: "rgba(99, 102, 241, 0.8)",
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 6,
       },
     ],
   };
 
-  const chartOptions: ChartOptions<"bar"> = {
+  const chartOptions: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -84,13 +100,16 @@ export default function Hero() {
           color: "rgba(156, 163, 175, 0.1)",
           lineWidth: 1.5,
           display: true,
-
           drawBorder: false,
         } as any,
         ticks: {
           color: "#6B7280",
           font: {
             size: 12,
+          },
+          stepSize: 1000,
+          callback: function (value: any) {
+            return value >= 1000 ? value / 1000 + "k" : value;
           },
         },
         border: {
@@ -123,16 +142,17 @@ export default function Hero() {
         <h1 className="text-3xl font-bold font-figtree mb-4">
           Sales Analytics
         </h1>
-        <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-lg p-4 h-full">
+        <div className="bg-white dark:bg-neutral-900 border-[1px] border-neutral-200 dark:border-neutral-800 cursor-pointer rounded-2xl shadow p-4 h-full">
           <div className="h-[300px] lg:h-full flex-grow">
-            <Bar data={salesData} options={chartOptions} />
+            <Line data={salesData} options={chartOptions} />
           </div>
         </div>
       </div>
       <div className="col-span-1 lg:col-span-2 ">
         <h1 className="text-3xl font-bold font-figtree mb-4">Summary</h1>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="flex flex-col p-4 rounded-2xl bg-gradient-to-br from-blue-500/50 to-indigo-600/50 gap-2  shadow-lg w-full">
+        {/* grid 2 */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-items-center ">
+          <div className="flex flex-col p-4 rounded-2xl bg-gradient-to-br from-indigo-500/40 to-indigo-600/50 gap-2 shadow-lg w-[90%] lg:w-full">
             <div className="flex justify-between items-center">
               <div className="dark:text-white text-black bg-white dark:bg-neutral-900 rounded-xl p-1.5">
                 <BadgeDollarSign size={24} />
@@ -155,18 +175,45 @@ export default function Hero() {
             </div>
           </div>
 
-         
-          <StatsCard
-            topIcon={ListFilterPlus}
-            valueIcon={User}
-            heading="Total Users"
-            value={798}
-            tagline="Users have shown interest"
-            growth={true}
-            growthPercentage="+12.45%"
-          />
-          <div className="bg-red-500/50 h-32 rounded-lg"></div>
-          <div className="bg-yellow-500/50 h-32 rounded-lg"></div>
+          <div className="w-[90%] lg:w-full">
+            <StatsCard
+              topIcon={
+                <ListFilterPlus size={24} className="text-blue-600/80" />
+              }
+              valueIcon={<User className="text-indigo-600/80" />}
+              heading="Total Users"
+              value={798}
+              tagline="Users have shown interest"
+              growth={true}
+              growthPercentage="+12.45%"
+            />
+          </div>
+          <div className="w-[90%] lg:w-full">
+            <StatsCard
+              topIcon={
+                <ShoppingCart size={24} className="text-yellow-600/80" />
+              }
+              valueIcon={<ShoppingBag className="text-emerald-600/80" />}
+              heading="Products Sold"
+              value={2448}
+              tagline="Dip in sales"
+              growth={false}
+              growthPercentage="+12.45%"
+            />
+          </div>
+          <div className="w-[90%] lg:w-full">
+            <StatsCard
+              topIcon={
+                <CalendarSync size={24} className="text-purple-600/90" />
+              }
+              valueIcon={<CircleFadingPlus className="text-rose-600/80" />}
+              heading="Conversion Rate"
+              value={"13.2%"}
+              tagline="Most significant increase"
+              growth={true}
+              growthPercentage="+22.45%"
+            />
+          </div>
         </div>
       </div>
     </div>
