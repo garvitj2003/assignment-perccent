@@ -32,7 +32,7 @@ ChartJS.register(
   Legend
 );
 
-export default function Hero() {
+export default function Main() {
   const salesData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
     datasets: [
@@ -142,7 +142,7 @@ export default function Hero() {
         <h1 className="text-3xl font-bold font-figtree mb-4">
           Sales Analytics
         </h1>
-        <div className="bg-white dark:bg-neutral-900 border-[1px] border-neutral-200 dark:border-neutral-800 cursor-pointer rounded-2xl shadow p-4 h-full">
+        <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer rounded-2xl shadow p-4 h-full">
           <div className="h-[300px] lg:h-full flex-grow">
             <Line data={salesData} options={chartOptions} />
           </div>
@@ -152,7 +152,7 @@ export default function Hero() {
         <h1 className="text-3xl font-bold font-figtree mb-4">Summary</h1>
         {/* grid 2 */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-items-center ">
-          <div className="flex flex-col p-4 rounded-2xl bg-gradient-to-br from-indigo-500/40 to-indigo-600/50 gap-2 shadow-lg w-[90%] lg:w-full">
+          <div className="flex flex-col p-4 rounded-2xl cursor-pointer hover:shadow-xl dark:hover:shadow-2xl transition-shadow duration-200 bg-gradient-to-br from-indigo-500/40 to-indigo-600/50 gap-2 shadow-lg w-[90%] lg:w-full">
             <div className="flex justify-between items-center">
               <div className="dark:text-white text-black bg-white dark:bg-neutral-900 rounded-xl p-1.5">
                 <BadgeDollarSign size={24} />
@@ -198,7 +198,7 @@ export default function Hero() {
               value={2448}
               tagline="Dip in sales"
               growth={false}
-              growthPercentage="+12.45%"
+              growthPercentage="-12.45%"
             />
           </div>
           <div className="w-[90%] lg:w-full">

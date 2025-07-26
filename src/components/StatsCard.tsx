@@ -21,7 +21,7 @@ export default function StatsCard({
   growthPercentage,
 }: StatsCardProps) {
   return (
-    <div className="flex flex-col gap-2 p-4 bg-white dark:bg-neutral-900 rounded-2xl shadow cursor-pointer border-[1px] border-neutral-200 dark:border-neutral-800">
+    <div className="flex flex-col gap-2 p-4 transition-shadow hover:shadow-xl dark:hover:shadow-2xl duration-200 bg-white dark:bg-neutral-900 rounded-2xl shadow cursor-pointer border-[1px] border-neutral-200 dark:border-neutral-800">
       <div className="flex justify-between items-center">
         <div className="dark:text-white text-black bg-neutral-200/70 dark:bg-neutral-800 rounded-xl p-1.5">
           {topIcon}
