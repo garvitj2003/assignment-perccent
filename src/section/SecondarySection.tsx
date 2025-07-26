@@ -38,8 +38,8 @@ export default function Secondary() {
   ).length;
 
   return (
-    <div className="w-full mt-4 gap-4 grid grid-cols-1 lg:grid-cols-5">
-      <div className="col-span-1 lg:col-span-2">
+    <div className="w-full mt-4 gap-4 grid grid-cols-1 lg:grid-cols-5 justify-items-center">
+      <div className="col-span-1 lg:col-span-2 w-[90%] lg:w-full">
         <div className=" shadow border  border-neutral-200 dark:border-neutral-800 w-full flex flex-col justify-between gap-8 bg-white dark:bg-neutral-900 rounded-2xl p-4">
           <div className="flex justify-between items-center">
             <span className="text-lg font-figtree font-semibold text-neutral-600 dark:text-white/70">
@@ -116,7 +116,7 @@ export default function Secondary() {
         </div>
       </div>
       {/*table area */}
-      <div className="col-span-1 lg:col-span-3 flex flex-col">
+      <div className="col-span-1 lg:col-span-3 flex flex-col w-[90%] lg:w-full">
         <div className="shadow border border-neutral-200 dark:border-neutral-800 w-full bg-white dark:bg-neutral-900 rounded-2xl p-4">
           <div className="flex justify-between items-center mb-6">
             <span className="text-lg font-figtree font-semibold text-neutral-600 dark:text-white/70">

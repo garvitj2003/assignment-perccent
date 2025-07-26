@@ -77,17 +77,19 @@ const navSections = [
 const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
   return (
     <div
-      className={`fixed top-0 left-0 h-full w-72 bg-white dark:bg-neutral-900 border  border-neutral-200 dark:border-neutral-800 rounded-r-2xl shadow-lg z-40 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 h-full w-72 bg-white dark:bg-neutral-900 border  border-neutral-200 dark:border-neutral-800 rounded-r-2xl shadow-lg z-[60] flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
         open ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       <div>
         <div className="p-4 border-b  border-neutral-100 dark:border-neutral-800 font-semibold text-neutral-800 dark:text-neutral-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Avatar/>
+            <Avatar />
             <div>
-                <div>Garvit Jain</div>
-                <div className="text-xs text-neutral-500 dark:text-neutral-400">garvitj2003@gmail.com</div>
+              <div>Garvit Jain</div>
+              <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                garvitj2003@gmail.com
+              </div>
             </div>
           </div>
           <button
@@ -95,7 +97,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
             onClick={onClose}
             aria-label="Close sidebar"
           >
-            <ChevronsLeft/>
+            <ChevronsLeft />
           </button>
         </div>
         <nav className="px-2 py-4 flex flex-col gap-2">

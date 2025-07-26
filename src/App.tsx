@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Main from "./section/Main";
+import Main from "./section/MainSection";
 import Sidebar from "./components/Sidebar";
-import Secondary from "./section/Secondary";
+import Secondary from "./section/SecondarySection";
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -17,6 +17,7 @@ const App = () => {
           Users and Invoices
         </h1>
         <Secondary />
+        <div className="mt-8 h-1"></div>
       </div>
     </div>
   );
